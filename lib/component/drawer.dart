@@ -146,8 +146,9 @@ class LinkItem {
 }
 
 const links = [
-  LinkItem('GitHub', 'https://github.com/your-repo', Icons.code),
-  LinkItem('Discord', 'https://discord.gg/your-server', Icons.chat),
+  LinkItem(
+      'GitHub', 'https://github.com/h-akatsuki/hitomi_search_plus', Icons.code),
+  LinkItem('Discord', 'https://discord.gg/cVNvk6MG', Icons.chat),
 ];
 
 class CustomDrawerPC extends HookConsumerWidget {
