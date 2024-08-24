@@ -6,6 +6,9 @@ on:
       - "v*"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build and Release MSIX
@@ -36,7 +39,7 @@ jobs:
       - name: Build MSIX
         env:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: echo y | flutter pub run msix:create --certificate-password "$env:KEY_PASSWORD"
+        run: echo y | flutter pub run msix:create --certificate-password "$env:KEY_PASSWORD" --output_path build/windows/runner/Release
 
       - name: Upload MSIX
         uses: actions/upload-artifact@v4
