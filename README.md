@@ -2,6 +2,13 @@
 
 Hitomi Search Plus is a Flutter application for browsing and searching the Hitomi.la gallery. This project aims to provide a user-friendly interface for exploring content with advanced features like bookmarking, search history, and custom tag suggestions.
 
+## Steps(Temp)
+- [x] Write code
+- [ ] Set up github actions(build)
+   - [ ] Android
+   - [ ] Windows
+- [ ] Compile README.md
+
 ## Features
 
 - Responsive design for both mobile and desktop platforms
