@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "**/*.g.dart": true,
+        "**/*.freezed.dart": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "editor.inlayHints.enabled": "on",
+}
