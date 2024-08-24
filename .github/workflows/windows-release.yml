@@ -34,18 +34,24 @@ jobs:
       - name: Build windows
         run: flutter build windows --release
 
-      - name: Upload EXE
+      - name: Zip Release
         uses: thedoctor0/zip-release@main
         with:
-          type: 'zip'
-          filename: '${{ env.release_file_name }}-windows.zip'
+          type: "zip"
+          filename: "${{ env.release_file_name }}-windows.zip"
           directory: build\windows\x64\runner\Release
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-exe
+          path: "${{ env.release_file_name }}-windows.zip"
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: '${{ env.release_file_name }}-windows.zip'
+          files: "${{ env.release_file_name }}-windows.zip"
           draft: false
           prerelease: false
         env:
