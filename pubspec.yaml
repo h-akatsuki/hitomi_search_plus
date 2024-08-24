@@ -92,6 +92,8 @@ msix_config:
   msix_version: 1.0.0.0
   logo_path: "icon/full.png"
   capabilities: internetClient
+  certificate_path: C:\certificate.pfx
+  certificate_password: ${{ secrets.KEY_PASSWORD }}
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
