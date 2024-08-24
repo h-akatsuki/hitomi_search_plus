@@ -1,34 +1,22 @@
 plugins {
     id "com.android.application"
     id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
 
-def localProperties = new Properties()
-def localPropertiesFile = rootProject.file('local.properties')
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
-        localProperties.load(reader)
-    }
-}
-
-def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
-}
-
 android {
-    namespace "com.example.hitomi_search_plus"
-    compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    namespace = "com.example.hitomi_search_plus"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
 
     signingConfigs {
@@ -41,12 +29,13 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.hitomi_search_plus"
-        minSdkVersion 29
-        targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        applicationId = "com.example.hitomi_search_plus"
+        minSdk = 29  // Android 10
+        targetSdk = flutter.targetSdkVersion
+        versionCode System.getenv("GITHUB_RUN_NUMBER") as Integer ?: 1
+        versionName flutter.versionName
         ndk {
+            // Tells Gradle to pack the shared library into the APK.
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
     }
@@ -56,13 +45,8 @@ android {
             signingConfig signingConfigs.release
         }
     }
-
-    lintOptions {
-        disable 'InvalidPackage'
-        checkReleaseBuilds false
-    }
 }
 
 flutter {
-    source '../..'
+    source = "../.."
 }
