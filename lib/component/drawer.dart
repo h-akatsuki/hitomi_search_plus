@@ -65,6 +65,19 @@ class AdaptiveScaffold extends HookConsumerWidget {
       return null;
     }, [isWideScreen, isDrawerOpen.value]);
 
+    if (!isMouseDevice) {
+      return Scaffold(
+        appBar: appBar,
+        body: body,
+        drawer: const Drawer(child: CustomDrawer()),
+        bottomNavigationBar: bottomNavigationBar,
+        floatingActionButton: floatingActionButton,
+        floatingActionButtonLocation: floatingActionButtonLocation,
+        persistentFooterButtons: persistentFooterButtons,
+        backgroundColor: backgroundColor,
+      );
+    }
+
     Widget scaffoldBody = Scaffold(
       appBar: appBar,
       body: body,
@@ -74,14 +87,6 @@ class AdaptiveScaffold extends HookConsumerWidget {
       backgroundColor: backgroundColor,
       bottomNavigationBar: bottomNavigationBar,
     );
-
-    if (!isMouseDevice) {
-      return Scaffold(
-        body: scaffoldBody,
-        drawer: const Drawer(child: CustomDrawer()),
-        bottomNavigationBar: bottomNavigationBar,
-      );
-    }
 
     return MouseRegion(
       onHover: (event) {

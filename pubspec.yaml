@@ -93,7 +93,6 @@ msix_config:
   logo_path: "icon/full.png"
   capabilities: internetClient
   certificate_path: C:\certificate.pfx
-  certificate_password: CERTIFICATE_PASSWORD_PLACEHOLDER
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
