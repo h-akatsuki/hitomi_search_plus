@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Icon</title>
+    <style>
+        :root {
+            --length: 500px;
+            --rate: 0.4;
+            --hit-color: #b1b1b100;
+            --primary-color: #4285F4;
+            --secondary-color: #FBBC05;
+            --background-color: #ffffff00;
+            --document-color: #F5F5F5;
+            --document-border: #a0a0a0;
+            --document-line: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            position: fixed;
+            display: block;
+            top: calc(50% - var(--length) / 2);
+            left: calc(50% - var(--length) / 2);
+            width: var(--length);
+            height: var(--length);
+            background-color: var(--background-color);
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .box1 {
+            position: absolute;
+            border: solid 1px var(--hit-color);
+            top: 13%;
+            left: 7%;
+            --size: 0.5;
+            width: calc(var(--length) * var(--size));
+            height: calc(var(--length) * var(--size));
+            --padd: calc((0.5 - var(--rate)) / 2);
+            --width: 5;
+            --color: var(--primary-color);
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle {
+            fill: none;
+            stroke: var(--color);
+            stroke-width: var(--width);
+            stroke-linecap: round;
+            stroke-dasharray: 87.96459430051421;
+            stroke-dashoffset: calc(87.96459430051421 * (1 - var(--rate)));
+            transition: stroke-dashoffset 0.5s ease-in-out;
+        }
+
+        .line {
+            stroke: var(--color);
+            stroke-width: var(--width);
+            stroke-linecap: round;
+        }
+
+        .a>svg {
+            transform: rotate(calc(90deg + var(--padd) * 360deg));
+        }
+
+        .b>svg {
+            transform: rotate(calc(-90deg + var(--padd) * 360deg));
+        }
+
+        .box2 {
+            position: absolute;
+            border: solid 1px var(--hit-color);
+            bottom: 12%;
+            right: 18%;
+            --size: 0.4;
+            width: calc(var(--length) * var(--size));
+            height: calc(var(--length) * var(--size));
+            transform: rotate(-45deg);
+            --color: var(--primary-color);
+        }
+
+        .box2>div {
+            position: absolute;
+            background-color: var(--color);
+        }
+
+        .d {
+            top: 0;
+            left: 45%;
+            width: 10%;
+            height: 30%;
+        }
+
+        .e {
+            top: 10%;
+            left: 40%;
+            width: 20%;
+            height: 20%;
+            border-radius: 10px;
+        }
+
+        .f {
+            top: 20%;
+            left: 35%;
+            width: 30%;
+            height: 80%;
+            border-radius: 5px;
+        }
+
+        .box3 {
+            position: absolute;
+            border: solid 1px var(--hit-color);
+            top: 14%;
+            right: 13%;
+            --size: 0.35;
+            width: calc(var(--length) * var(--size));
+            height: calc(var(--length) * var(--size));
+        }
+
+        .box4 {
+            position: absolute;
+            top: 22%;
+            left: 12%;
+            width: 50%;
+            height: 55%;
+            background-color: var(--document-color);
+            border: 2px solid var(--document-border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .document-background {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .document-line {
+            height: 10px;
+            background-color: var(--document-line);
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .document-line:nth-child(odd) {
+            width: 100%;
+        }
+
+        .document-line:nth-child(even) {
+            width: 70%;
+        }
+
+        .option {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #00000033;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="box4">
+            <div class="document-background">
+                <div class="document-line"></div>
+                <div class="document-line"></div>
+                <div class="document-line"></div>
+                <div class="document-line"></div>
+                <div class="document-line"></div>
+                <div class="document-line"></div>
+                <div class="document-line"></div>
+                <div class="document-line"></div>
+            </div>
+        </div>
+        <div class="box1 a">
+            <svg class="circle-indicator" viewBox="0 0 36 36">
+                <circle class="circle" cx="18" cy="18" r="14" />
+            </svg>
+        </div>
+        <div class="box1 b">
+            <svg class="circle-indicator" viewBox="0 0 36 36">
+                <circle class="circle" cx="18" cy="18" r="14" />
+            </svg>
+        </div>
+        <div class="box1 c">
+            <svg class="line" viewBox="0 0 36 36">
+                <line class="central-line" x1="4" y1="18" x2="32" y2="18" />
+            </svg>
+        </div>
+        <div class="box2">
+            <div class="d"></div>
+            <div class="e"></div>
+            <div class="f"></div>
+        </div>
+        <div class="box3">
+            <svg viewBox="0 0 100 100">
+                <defs>
+                    <linearGradient id="plusGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FFEB3B;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="dropShadow">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                        <feOffset dx="2" dy="2" result="offsetblur" />
+                        <feFlood flood-color="#00000033" />
+                        <feComposite in2="offsetblur" operator="in" />
+                        <feMerge>
+                            <feMergeNode />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <path
+                    d="M50 10 Q40 10 40 20 V40 H20 Q10 40 10 50 Q10 60 20 60 H40 V80 Q40 90 50 90 Q60 90 60 80 V60 H80 Q90 60 90 50 Q90 40 80 40 H60 V20 Q60 10 50 10 Z"
+                    fill="url(#plusGradient)" filter="url(#dropShadow)" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="option">
+
+    </div>
+
+    <script>
+        const option = document.querySelector('.option');
+        {
+            let hitBox = document.createElement('div');
+            let show = false;
+            hitBox.innerHTML = `Show Hit Box`;
+            hitBox.addEventListener('click', () => {
+                show = !show;
+                document.documentElement.style.setProperty('--hit-color', show ? '#b1b1b1' : '#b1b1b100');
+                hitBox.innerHTML = show ? 'Hide Hit Box' : 'Show Hit Box';
+            });
+            option.appendChild(hitBox);
+        }
+        {
+            const modes = ['full', 'foreground', 'background'];
+            let mode = 0;
+            let modeBox = document.createElement('div');
+            modeBox.innerHTML = `Mode: ${modes[mode]}`;
+            modeBox.addEventListener('click', () => {
+                mode = (mode + 1) % modes.length;
+                const box1 = document.querySelectorAll('.box1');
+                const box2 = document.querySelectorAll('.box2');
+                const box3 = document.querySelectorAll('.box3');
+                const box4 = document.querySelectorAll('.box4');
+
+                const show = (elements) => {
+                    elements.forEach(element => {
+                        element.style.display = 'block';
+                    });
+                }
+
+                const hide = (elements) => {
+                    elements.forEach(element => {
+                        element.style.display = 'none';
+                    });
+                }
+
+                switch (modes[mode]) {
+                    case 'full':
+                        show(box1);
+                        show(box2);
+                        show(box3);
+                        show(box4);
+                        break;
+                    case 'foreground':
+                        show(box1);
+                        show(box2);
+                        show(box3);
+                        hide(box4);
+                        break;
+                    case 'background':
+                        hide(box1);
+                        hide(box2);
+                        hide(box3);
+                        show(box4);
+                        break;
+                }
+                modeBox.innerHTML = `Mode: ${modes[mode]}`;
+            });
+            option.appendChild(modeBox);
+        }
+        {
+            let topBorder = document.createElement('div');
+            topBorder.innerHTML = `Top Border`;
+            let show = false;
+            let box = document.querySelector('.box');
+            topBorder.addEventListener('click', () => {
+                show = !show;
+                box.style.border = show ? 'solid 1px #000000' : 'none';
+                topBorder.innerHTML = show ? 'Hide Top Border' : 'Top Border';
+            });
+            option.appendChild(topBorder);
+        }
+        {
+            let bodyBackground = document.createElement('div');
+            bodyBackground.innerHTML = `Body Background`;
+            let show = false;
+            bodyBackground.addEventListener('click', () => {
+                show = !show;
+                document.body.style.backgroundColor = show ? '#00000000' : 'green';
+                bodyBackground.innerHTML = show ? 'White Background' : 'Body Background';
+            });
+            option.appendChild(bodyBackground);
+        }
+        {
+            let boxBackground = document.createElement('div');
+            boxBackground.innerHTML = `Box Background`;
+            let show = false;
+            boxBackground.addEventListener('click', () => {
+                show = !show;
+                document.documentElement.style.setProperty('--background-color', show ? '#FFFFFF' : '#ffffff00');
+                boxBackground.innerHTML = show ? 'White Background' : 'Box Background';
+            });
+            option.appendChild(boxBackground);
+        }
+    </script>
+</body>
+
+</html>
