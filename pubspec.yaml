@@ -71,6 +71,7 @@ dev_dependencies:
   freezed: ^2.5.7
   json_serializable: ^6.8.0
   flutter_launcher_icons: "^0.13.1"
+  msix: ^3.16.8
 
 flutter_icons:
   android: true
@@ -83,6 +84,14 @@ flutter_icons:
     generate: true
     image_path: "icon/full.png"
     icon_size: 48
+
+msix_config:
+  display_name: Hitomi Search Plus
+  publisher_display_name: h-akatuki
+  identity_name: com.example.hitomi_search_plus
+  msix_version: 1.0.0.0
+  logo_path: "icon/full.png"
+  capabilities: internetClient
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
