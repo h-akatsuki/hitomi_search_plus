@@ -121,6 +121,15 @@ class OnlineReader extends HookConsumerWidget {
         itemBuilder: (context, index) {
           return GalleryImageView(
             imageKey: ImageKey(id: gallery.id, page: index),
+            onTap: () {
+              context.push(FullscreenReader(
+                id: gallery.id,
+                initialPage: index,
+                onDone: (page) {
+                  controller.jump(page);
+                },
+              ));
+            },
           );
         },
         controller: controller,
