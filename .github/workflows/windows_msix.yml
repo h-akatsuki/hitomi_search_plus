@@ -33,9 +33,13 @@ jobs:
           $certPath = "C:\certificate.pfx"
           [IO.File]::WriteAllBytes($certPath, $certBytes)
 
-      - name: Build MSIX
+      - name: Update pubspec.yaml
         env:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          (Get-Content pubspec.yaml) -replace 'CERTIFICATE_PASSWORD_PLACEHOLDER', $env:KEY_PASSWORD | Set-Content pubspec.yaml
+
+      - name: Build MSIX
         run: flutter pub run msix:create
 
       - name: Upload MSIX
