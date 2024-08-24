@@ -3,7 +3,7 @@ name: Windows MSIX Release
 on:
   push:
     tags:
-      - "v*"
+      - "v*+msix"
   workflow_dispatch:
 
 permissions:
