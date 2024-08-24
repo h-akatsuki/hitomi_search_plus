@@ -35,7 +35,7 @@ jobs:
 
       - name: Build MSIX
         env:
-          CERTIFICATE_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: flutter pub run msix:create
 
       - name: Upload MSIX
