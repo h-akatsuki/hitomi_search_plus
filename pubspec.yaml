@@ -88,7 +88,7 @@ flutter_icons:
 msix_config:
   display_name: Hitomi Search Plus
   publisher_display_name: h-akatuki
-  identity_name: com.example.hitomi_search_plus
+  identity_name: red.hiro.HitomiSearchPlus
   msix_version: 1.0.0.0
   logo_path: "icon/full.png"
   capabilities: internetClient
