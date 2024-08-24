@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "red.hiro.HitomiSearchPlus"
+    namespace = "red.hiro.hitomi_search_plus"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -29,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "red.hiro.HitomiSearchPlus"
+        applicationId = "red.hiro.hitomi_search_plus"
         minSdk = 29  // Android 10
         targetSdk = flutter.targetSdkVersion
         versionCode System.getenv("GITHUB_RUN_NUMBER") as Integer ?: 1
