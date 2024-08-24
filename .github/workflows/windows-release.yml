@@ -40,19 +40,18 @@ jobs:
           type: "zip"
           filename: "${{ env.release_file_name }}-windows.zip"
           directory: build\windows\x64\runner\Release
-          path: C:\Actions
 
-      - name: Upload EXE
+      - name: Upload ZIP
         uses: actions/upload-artifact@v4
         with:
           name: release-exe
-          path: "C:\\Actions\\${{ env.release_file_name }}-windows.zip"
+          path: build/windows/x64/runner/Release/${{ env.release_file_name }}-windows.zip
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: "C:\\Actions\\${{ env.release_file_name }}-windows.zip"
+          files: build/windows/x64/runner/Release/${{ env.release_file_name }}-windows.zip
           draft: false
           prerelease: false
         env:
