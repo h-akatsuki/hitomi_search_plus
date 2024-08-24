@@ -4,9 +4,9 @@ Hitomi Search Plus is a Flutter application for browsing and searching the Hitom
 
 ## Steps(Temp)
 - [x] Write code
-- [ ] Set up github actions(build)
+- [x] Set up github actions(build)
    - [x] Android
-   - [ ] Windows
+   - [x] Windows
 - [ ] Compile README.md
 
 ## Features
