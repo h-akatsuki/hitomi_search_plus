@@ -39,7 +39,7 @@ jobs:
         with:
           type: 'zip'
           filename: '${{ env.release_file_name }}-windows.zip'
-          directory: build/windows/runner/Release
+          directory: build\windows\x64\runner\Release
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
