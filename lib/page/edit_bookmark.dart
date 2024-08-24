@@ -40,7 +40,7 @@ class BookmarkEditScreen extends HookConsumerWidget {
         ref.read(bookmarkProvider.notifier).edit(
             id,
             bookmark.searchBuilder
-                .copyWith(defaultQuery: defController.selected),
+                .copyWith(defaultQuery: defController.selected, query: controller.queryText),
             titleController.text);
       },
       child: Scaffold(
