@@ -1,3 +1,15 @@
+buildscript {
+    ext.kotlin_version = '1.8.22'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 allprojects {
     repositories {
         google()
@@ -11,6 +23,13 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(":app")
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'org.jetbrains.kotlin') {
+                details.useVersion kotlin_version
+            }
+        }
+    }
 }
 
 tasks.register("clean", Delete) {
