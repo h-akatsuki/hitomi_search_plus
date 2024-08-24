@@ -1,3 +1,9 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -6,20 +12,19 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-plugins {
-    id "com.android.application"
-    id "kotlin-android"
-    id "dev.flutter.flutter-gradle-plugin"
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 android {
-    namespace = "com.example.hitomi_search_plus"
+    namespace "com.example.hitomi_search_plus"
     compileSdkVersion flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
@@ -36,9 +41,9 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.hitomi_search_plus"
-        minSdk = 29  // Android 10
-        targetSdk = flutter.targetSdkVersion
+        applicationId "com.example.hitomi_search_plus"
+        minSdkVersion 29
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         ndk {
@@ -59,5 +64,5 @@ android {
 }
 
 flutter {
-    source = "../.."
+    source '../..'
 }
