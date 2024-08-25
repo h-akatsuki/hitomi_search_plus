@@ -43,7 +43,7 @@ Hitomi Search Plus 支持以下平台：
 
 对于其他平台，请参阅 Flutter 官方文档。
 
-从 [发布页面](https://github.com/your_username/hitomi_search_plus/releases) 下载最新版本。
+从 [发布页面](https://github.com/h-akatuki/hitomi_search_plus/releases) 下载最新版本。
 
 
 ## 主要功能和演示

@@ -43,7 +43,7 @@ Hitomi Search Plus는 다음 플랫폼을 지원합니다.
 
 다른 플랫폼의 경우 공식 Flutter 문서를 참조하십시오.
 
-[릴리스 페이지](https://github.com/your_username/hitomi_search_plus/releases)에서 최신 버전을 다운로드하십시오.
+[릴리스 페이지](https://github.com/h-akatuki/hitomi_search_plus/releases)에서 최신 버전을 다운로드하십시오.
 
 
 ## 주요 기능 및 데모
