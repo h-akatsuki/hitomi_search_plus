@@ -1,5 +1,9 @@
 # Hitomi Search Plus
 
+[Kr](README_kr.md) | [En](README.md) | [Cn](README_cn.md) | [Ja](README_ja.md)
+---
+
+
 <p align="center">
   <img src="icon/full.png" alt="Hitomi Search Plus Logo" width="200" height="200" style="border-radius: 50%;" />
 </p>
