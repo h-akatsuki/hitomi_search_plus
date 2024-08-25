@@ -31,8 +31,9 @@ Future<void> initPath() async {
       } else {
         appDocDir = await getApplicationDocumentsDirectory();
       }
+    } else {
+      appDocDir = await getApplicationDocumentsDirectory();
     }
-    appDocDir = await getApplicationDocumentsDirectory();
   }
   db = await initDb();
   await Future.wait([
