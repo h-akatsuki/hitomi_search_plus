@@ -231,6 +231,14 @@ class CustomDrawerPC extends HookConsumerWidget {
               ],
             ),
           ),
+          _buildExcludedListTile(
+            context: context,
+            icon: Icons.info,
+            title: 'License',
+            onTap: () => showLicensePage(context: context),
+            colorScheme: colorScheme,
+            textTheme: textTheme,
+          ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
@@ -331,6 +339,14 @@ class CustomDrawer extends HookConsumerWidget {
                 ),
               ],
             ),
+          ),
+          ListTile(
+            leading: Icon(Icons.info, color: colorScheme.primary),
+            title: Text('License', style: textTheme.titleMedium),
+            onTap: () {
+              Navigator.pop(context);
+              showLicensePage(context: context);
+            },
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
