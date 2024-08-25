@@ -33,6 +33,7 @@ Hitomi Search Plus is a lightweight and fast Flutter application that provides a
 - Per-query bookmarking with automatic updates
 - Modern UI design with Material Design
 - Standard features including gallery view and favorites
+- `New!` Data synchronization between devices
 
 ### Installation
 

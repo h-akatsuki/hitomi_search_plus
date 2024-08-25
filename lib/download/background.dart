@@ -1,3 +1,4 @@
+import 'package:hitomi_search_plus/db/export.dart';
 import 'package:hitomi_search_plus/db/like.dart';
 import 'package:hitomi_search_plus/download/download.dart';
 import 'package:hitomi_search_plus/download/gallery.dart';
@@ -19,8 +20,15 @@ class BackgroundDownloader extends _$BackgroundDownloader {
     final listen = likeStream.stream.listen((event) {
       updateState(event);
     });
+    final listen2 = ref.listen(dataSyncProvider, (v1, v2) {
+      if (v1 == null) {
+        return;
+      }
+      load();
+    });
     ref.onDispose(() {
       listen.cancel();
+      listen2.close();
     });
     return [];
   }

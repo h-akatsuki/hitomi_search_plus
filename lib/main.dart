@@ -23,6 +23,15 @@ Future<void> initPath() async {
   if (kDebugMode && Platform.isWindows) {
     appDocDir = Directory('data');
   } else {
+    if (Platform.isWindows) {
+      // Portable mode
+      final saveDir = Directory('save');
+      if (await saveDir.exists()) {
+        appDocDir = saveDir;
+      } else {
+        appDocDir = await getApplicationDocumentsDirectory();
+      }
+    }
     appDocDir = await getApplicationDocumentsDirectory();
   }
   db = await initDb();

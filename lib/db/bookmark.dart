@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:hitomi_search_plus/db/default_query.dart';
+import 'package:hitomi_search_plus/db/export.dart';
 import 'package:hitomi_search_plus/db/kv.dart';
 import 'package:hitomi_search_plus/main.dart';
 import 'package:hitomi_search_plus/server/query.dart';
@@ -272,6 +273,7 @@ class Bookmark extends _$Bookmark {
 
   @override
   List<BookmarkItem> build() {
+    ref.watch(dataSyncProvider);
     Future(() async {
       await load();
       await update();

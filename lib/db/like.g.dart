@@ -6,7 +6,7 @@ part of 'like.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$likeHash() => r'3f715d5b15306264da742c258ee5c34c2bc4abc5';
+String _$likeHash() => r'ba8528f200f29647e88232070ef9e0c72635e974';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -164,7 +164,7 @@ class _LikeProviderElement
   int get galleryId => (origin as LikeProvider).galleryId;
 }
 
-String _$likeListHash() => r'e05b96c68ffe32796c154cfab11fe086add7a008';
+String _$likeListHash() => r'8a36437bfccc67ef43583b8dec0d9e297ca73194';
 
 /// See also [LikeList].
 @ProviderFor(LikeList)

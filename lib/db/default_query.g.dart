@@ -58,7 +58,7 @@ Map<String, dynamic> _$$SelectDefaultQueryImplToJson(
 // RiverpodGenerator
 // **************************************************************************
 
-String _$defaultQueryDataHash() => r'528acf44d23663a85ec09b9890e37211c1ce4987';
+String _$defaultQueryDataHash() => r'94dfdc6174d32656dba76731a4b534d97b8f23eb';
 
 /// See also [DefaultQueryData].
 @ProviderFor(DefaultQueryData)

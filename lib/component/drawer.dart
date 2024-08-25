@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hitomi_search_plus/page/history.dart';
 import 'package:hitomi_search_plus/page/search.dart';
 import 'package:hitomi_search_plus/page/settings.dart';
+import 'package:hitomi_search_plus/page/sync.dart';
 import 'package:hitomi_search_plus/tools/suger.dart';
 import 'package:hitomi_search_plus/tools/url.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -209,6 +210,14 @@ class CustomDrawerPC extends HookConsumerWidget {
                   colorScheme: colorScheme,
                   textTheme: textTheme,
                 ),
+                _buildExcludedListTile(
+                  context: context,
+                  icon: Icons.sync_alt,
+                  title: 'Sync',
+                  onTap: () => context.push(const DataSyncScreen()),
+                  colorScheme: colorScheme,
+                  textTheme: textTheme,
+                ),
                 const Divider(),
                 ...links.map((link) => _buildExcludedListTile(
                       context: context,
@@ -320,6 +329,14 @@ class CustomDrawer extends HookConsumerWidget {
                   onTap: () {
                     Navigator.pop(context);
                     context.push(const HistoryScreenPage());
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.sync_alt, color: colorScheme.primary),
+                  title: Text('Sync', style: textTheme.titleMedium),
+                  onTap: () {
+                    Navigator.pop(context);
+                    context.push(const DataSyncScreen());
                   },
                 ),
                 const Divider(),

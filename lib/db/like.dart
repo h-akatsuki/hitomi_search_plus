@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:typed_data';
 
+import 'package:hitomi_search_plus/db/export.dart';
 import 'package:hitomi_search_plus/db/tasks.dart';
 import 'package:hitomi_search_plus/main.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -76,6 +77,7 @@ final likeStream = StreamController<LikeUpdate>.broadcast();
 class Like extends _$Like {
   @override
   bool build(int galleryId) {
+    ref.watch(dataSyncProvider);
     Future(() {
       load();
     });
@@ -104,6 +106,7 @@ class Like extends _$Like {
 class LikeList extends _$LikeList {
   @override
   Future<Uint32List> build() async {
+    ref.watch(dataSyncProvider);
     final result = await db.rawQuery('''
       SELECT id FROM like ORDER BY added_at ASC
     ''');

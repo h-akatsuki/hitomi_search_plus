@@ -316,7 +316,7 @@ final bookmarkLastUpdateProvider =
 );
 
 typedef _$BookmarkLastUpdate = Notifier<String>;
-String _$bookmarkHash() => r'cea480aa0be6a1cebbfc6ec9f1450802d75e93f8';
+String _$bookmarkHash() => r'd58ababcf70a9ce62370c43878d7fe535b4dbe57';
 
 /// See also [Bookmark].
 @ProviderFor(Bookmark)

@@ -170,6 +170,11 @@ class DefaultQueryData extends _$DefaultQueryData {
     }
     return buffer.toString();
   }
+
+  Future<void> set(DefaultQueryList data) {
+    state = data;
+    return _saveToStorage();
+  }
 }
 
 @riverpod
