@@ -44,7 +44,7 @@ Hitomi Search Plus supports the following platforms:
 
 For other platforms, please refer to the official Flutter documentation.
 
-Download the latest version from the [Releases Page](https://github.com/h-akatuki/hitomi_search_plus/releases).
+Download the latest version from the [Releases Page](https://github.com/h-akatsuki/hitomi_search_plus/releases).
 
 
 ## Key Features and Demo
