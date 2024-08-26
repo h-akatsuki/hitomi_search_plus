@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hitomi_search_plus/root.dart';
 import 'package:hitomi_search_plus/src/rust/frb_generated.dart';
+import 'package:hitomi_search_plus/tools/mouse.dart';
 import 'package:hitomi_search_plus/tools/theme.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
@@ -33,19 +35,9 @@ Future<void> main() async {
   await Future.wait([
     initPath(),
     RustLib.init(),
+    MouseButtonDetector.initialize(),
   ]);
   runApp(const ProviderScope(child: HitomiSearchPlus()));
-}
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Text('Hello World'),
-    );
-  }
 }
 
 class HitomiSearchPlus extends ConsumerWidget {
@@ -59,7 +51,7 @@ class HitomiSearchPlus extends ConsumerWidget {
       darkTheme: theme.dark(),
       theme: theme.light(),
       themeMode: ThemeMode.system,
-      home: const Home(),
+      home: const Root(),
     );
   }
 }
