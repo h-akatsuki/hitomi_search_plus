@@ -46,3 +46,5 @@ app.*.map.json
 /data
 data.md
 README_WIP.md
+
+/updater/target

@@ -34,26 +34,37 @@ jobs:
       - name: Build windows
         run: flutter build windows --release
 
-      - name: Zip Release
-        uses: thedoctor0/zip-release@main
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
         with:
-          type: "zip"
-          filename: "${{ env.release_file_name }}-windows.zip"
-          directory: build\windows\x64\runner\Release
+          toolchain: stable
+          profile: minimal
+
+      - name: Build Updater
+        run: |
+          cd updater
+          cargo build --release
+
+      - name: Create Release ZIP
+        run: |
+          mkdir release
+          copy build\windows\x64\runner\Release\* release\
+          copy updater\target\release\updater.exe release\
+          copy updater\updater.bat release\
+          Compress-Archive -Path release\* -DestinationPath ${{ env.release_file_name }}-windows.zip
 
       - name: Upload ZIP
         uses: actions/upload-artifact@v4
         with:
           name: release-exe
-          path: build/windows/x64/runner/Release/${{ env.release_file_name }}-windows.zip
+          path: ${{ env.release_file_name }}-windows.zip
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: build/windows/x64/runner/Release/${{ env.release_file_name }}-windows.zip
+          files: ${{ env.release_file_name }}-windows.zip
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

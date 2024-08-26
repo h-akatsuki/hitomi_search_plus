@@ -1,10 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hitomi_search_plus/component/bookmark.dart';
 import 'package:hitomi_search_plus/component/drawer.dart';
 import 'package:hitomi_search_plus/component/like.dart';
 import 'package:hitomi_search_plus/page/search.dart';
+import 'package:hitomi_search_plus/server/update.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+bool show = true;
 
 class Home extends HookConsumerWidget {
   const Home({super.key});
@@ -13,6 +18,22 @@ class Home extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final pageController = usePageController();
     final selectedIndex = useState(0);
+
+    useEffect(() {
+      if (!show || !Platform.isWindows) {
+        return;
+      }
+      Future(() async {
+        final can =
+            await ref.read(latestVersionProvider.notifier).isUpdateAvailable();
+        show = false;
+        if (can) {
+          UpdateManager.launchUpdaterAndExit(
+              context, await ref.read(latestVersionProvider.future));
+        }
+      });
+      return null;
+    }, []);
 
     useEffect(() {
       pageController.addListener(() {
