@@ -47,11 +47,18 @@ jobs:
 
       - name: Create Release ZIP
         run: |
-          mkdir release
-          copy build\windows\x64\runner\Release\* release\
-          copy updater\target\release\updater.exe release\
-          copy updater\updater.bat release\
-          Compress-Archive -Path release\* -DestinationPath ${{ env.release_file_name }}-windows.zip
+          $releaseDir = "release"
+          New-Item -ItemType Directory -Force -Path $releaseDir
+          
+          # Copy Flutter build output with folder structure
+          Copy-Item -Path "build\windows\x64\runner\Release\*" -Destination $releaseDir -Recurse
+          
+          # Copy updater files
+          Copy-Item -Path "updater\target\release\updater.exe" -Destination $releaseDir
+          Copy-Item -Path "updater\updater.bat" -Destination $releaseDir
+          
+          # Create ZIP file
+          Compress-Archive -Path "$releaseDir\*" -DestinationPath "${{ env.release_file_name }}-windows.zip"
 
       - name: Upload ZIP
         uses: actions/upload-artifact@v4
