@@ -1,11 +1,5 @@
 # Hitomi Search Plus
 
->[!WARNING]
->hitomi.la is currently experiencing connectivity issues due to an update on their end.  
->There doesn't appear to be any technical changes, but the index updates have stopped. 
-
-
-
 [Kr](README_kr.md) | [En](README.md) | [Cn](README_cn.md) | [Ja](README_ja.md)
 ---
 
