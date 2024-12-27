@@ -4,6 +4,7 @@ import 'package:hitomi_search_plus/hitomi/common.dart';
 import 'package:hitomi_search_plus/hitomi/gallery.dart';
 import 'package:hitomi_search_plus/hitomi/gg.dart';
 import 'package:hitomi_search_plus/main.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sqflite/sqflite.dart';
@@ -55,7 +56,7 @@ Future<void> clearSmallImages() {
 }
 
 @riverpod
-Future<SmallImageItem> smallImage(SmallImageRef ref, int id) async {
+Future<SmallImageItem> smallImage(Ref ref, int id) async {
   final res = await getSmallImage(id);
   if (res == null) {
     final gallery = await ref.read(galleryJSProvider(id).future);

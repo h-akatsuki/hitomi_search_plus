@@ -6,7 +6,7 @@ part of 'top.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$topImageStatusHash() => r'63f5f2da3f44e9684343d3cd5c3f5e8543e6996d';
+String _$topImageStatusHash() => r'fc3c59ca92a39f15e824c56a1c7488550a182099';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -142,6 +142,8 @@ class TopImageStatusProvider extends AutoDisposeProvider<ImageDownloadStatus> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin TopImageStatusRef on AutoDisposeProviderRef<ImageDownloadStatus> {
   /// The parameter `id` of this provider.
   int get id;
@@ -286,6 +288,8 @@ class TopBigImageStatusProvider extends AutoDisposeNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin TopBigImageStatusRef
     on AutoDisposeNotifierProviderRef<ImageDownloadStatus> {
   /// The parameter `id` of this provider.
@@ -301,4 +305,4 @@ class _TopBigImageStatusProviderElement
   int get id => (origin as TopBigImageStatusProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

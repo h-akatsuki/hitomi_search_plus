@@ -31,7 +31,7 @@ class PageJumpWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(24),
               boxShadow: [
                 BoxShadow(
-                  color: context.theme.colorScheme.primary.withOpacity(0.5),
+                  color: context.theme.colorScheme.primary.withValues(alpha: 0.5),
                   blurRadius: 4,
                   offset: const Offset(0, 2),
                 ),

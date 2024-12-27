@@ -6,7 +6,7 @@ part of 'thumbnail.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$autoTitleHash() => r'b911c45a8c9dd88f752c7ed3ad9d1c30c8e9b5b3';
+String _$autoTitleHash() => r'0d6064d429fc784efcd7a3a3256b95f434249eb2';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -141,6 +141,8 @@ class AutoTitleProvider extends AutoDisposeProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin AutoTitleRef on AutoDisposeProviderRef<String> {
   /// The parameter `id` of this provider.
   int get id;
@@ -169,4 +171,4 @@ final useJapaneseProvider = NotifierProvider<UseJapanese, bool>.internal(
 
 typedef _$UseJapanese = Notifier<bool>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

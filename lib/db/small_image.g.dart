@@ -6,7 +6,7 @@ part of 'small_image.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$smallImageHash() => r'89be84638103f2f027858832f55f855336947c90';
+String _$smallImageHash() => r'a6850bd9b1c5c305513d973f29b472cad293988b';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -142,6 +142,8 @@ class SmallImageProvider extends AutoDisposeFutureProvider<SmallImageItem> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SmallImageRef on AutoDisposeFutureProviderRef<SmallImageItem> {
   /// The parameter `id` of this provider.
   int get id;
@@ -156,4 +158,4 @@ class _SmallImageProviderElement
   int get id => (origin as SmallImageProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

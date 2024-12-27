@@ -52,8 +52,6 @@ extension TagConverter on TagType {
         return Icons.male;
       case TagType.tag:
         return Icons.tag;
-      default:
-        return Icons.error;
     }
   }
 

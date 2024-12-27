@@ -8,6 +8,7 @@ import 'package:hitomi_search_plus/db/export.dart';
 import 'package:hitomi_search_plus/db/kv.dart';
 import 'package:hitomi_search_plus/main.dart';
 import 'package:hitomi_search_plus/server/query.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sqflite/sqflite.dart';
@@ -349,7 +350,7 @@ class Bookmark extends _$Bookmark {
 }
 
 @riverpod
-int? bookmarked(BookmarkedRef ref, String query) {
+int? bookmarked(Ref ref, String query) {
   final bookmarks = ref.watch(bookmarkProvider.select((b) {
     for (final bookmark in b) {
       if (bookmark.searchBuilder.query.trim() == query.trim()) {
@@ -362,7 +363,7 @@ int? bookmarked(BookmarkedRef ref, String query) {
 }
 
 @riverpod
-BookmarkItem? bookmarkGet(BookmarkGetRef ref, int id) {
+BookmarkItem? bookmarkGet(Ref ref, int id) {
   final bookmarks = ref.watch(bookmarkProvider.select((b) {
     for (final bookmark in b) {
       if (bookmark.id == id) {

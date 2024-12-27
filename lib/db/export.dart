@@ -88,7 +88,7 @@ class DataSyncState extends _$DataSyncState {
     );
   }
 
-  bool get isWorking =>
+  bool isWorking() =>
       state.upload == SyncState.working || state.download == SyncState.working;
 
   void startDownload() {
@@ -124,7 +124,7 @@ class DataSync extends _$DataSync {
   }
 
   Future<void> uploadData() async {
-    if (ref.read(dataSyncStateProvider.notifier).isWorking) {
+    if (ref.read(dataSyncStateProvider.notifier).isWorking()) {
       return;
     }
     ref.read(dataSyncStateProvider.notifier).startUpload();
@@ -153,7 +153,7 @@ class DataSync extends _$DataSync {
   }
 
   Future<void> downloadData() async {
-    if (ref.read(dataSyncStateProvider.notifier).isWorking) {
+    if (ref.read(dataSyncStateProvider.notifier).isWorking()) {
       return;
     }
     ref.read(dataSyncStateProvider.notifier).startDownload();

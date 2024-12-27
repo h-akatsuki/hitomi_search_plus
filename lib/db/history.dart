@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hitomi_search_plus/download/download.dart';
 import 'package:hitomi_search_plus/main.dart';
 import 'package:hitomi_search_plus/server/query.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -169,7 +170,7 @@ class History extends _$History {
 }
 
 @riverpod
-Future<HistoryItem?> getHistory(GetHistoryRef ref, int index) {
+Future<HistoryItem?> getHistory(Ref ref, int index) {
   final v = ref.watch(historyProvider.select((e) => loadCache(index)));
   return v;
 }

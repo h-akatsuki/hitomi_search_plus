@@ -6,7 +6,7 @@ part of 'bookmark.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookmarkedHash() => r'7083f4843ef156775ba3600f3de3a48077864081';
+String _$bookmarkedHash() => r'6410d973d6922b6bb921bbd5497e9dbff095a54a';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -142,6 +142,8 @@ class BookmarkedProvider extends AutoDisposeProvider<int?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BookmarkedRef on AutoDisposeProviderRef<int?> {
   /// The parameter `query` of this provider.
   String get query;
@@ -155,7 +157,7 @@ class _BookmarkedProviderElement extends AutoDisposeProviderElement<int?>
   String get query => (origin as BookmarkedProvider).query;
 }
 
-String _$bookmarkGetHash() => r'a8d553fd51d29fda7caf5277105d483350fe07aa';
+String _$bookmarkGetHash() => r'112897b3cd001d0628c08842fd43aec5c3eadd86';
 
 /// See also [bookmarkGet].
 @ProviderFor(bookmarkGet)
@@ -270,6 +272,8 @@ class BookmarkGetProvider extends AutoDisposeProvider<BookmarkItem?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BookmarkGetRef on AutoDisposeProviderRef<BookmarkItem?> {
   /// The parameter `id` of this provider.
   int get id;
@@ -316,7 +320,7 @@ final bookmarkLastUpdateProvider =
 );
 
 typedef _$BookmarkLastUpdate = Notifier<String>;
-String _$bookmarkHash() => r'd58ababcf70a9ce62370c43878d7fe535b4dbe57';
+String _$bookmarkHash() => r'df5edb8ded439f639226e90705711d66a268f0b0';
 
 /// See also [Bookmark].
 @ProviderFor(Bookmark)
@@ -332,4 +336,4 @@ final bookmarkProvider =
 
 typedef _$Bookmark = Notifier<List<BookmarkItem>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

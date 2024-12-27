@@ -189,7 +189,7 @@ Map<String, dynamic> _$$GalleryImplToJson(_$GalleryImpl instance) =>
 // RiverpodGenerator
 // **************************************************************************
 
-String _$galleryJSHash() => r'b7e2eb50e0405f36fce7f943c29f4e959630b068';
+String _$galleryJSHash() => r'f4f30a1cf50471e6396e37c2999351c612e75242';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -324,6 +324,8 @@ class GalleryJSProvider extends AutoDisposeFutureProvider<Gallery> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GalleryJSRef on AutoDisposeFutureProviderRef<Gallery> {
   /// The parameter `id` of this provider.
   int get id;
@@ -337,4 +339,4 @@ class _GalleryJSProviderElement
   int get id => (origin as GalleryJSProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hitomi_search_plus/db/gallery_cache.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -225,7 +226,7 @@ class Gallery with _$Gallery {
 final http.Client client = http.Client();
 
 @riverpod
-Future<Gallery> galleryJS(GalleryJSRef ref, int id) async {
+Future<Gallery> galleryJS(Ref ref, int id) async {
   final cache = await getGalleryCache(id);
   if (cache != null) {
     return Gallery.fromJS(cache);

@@ -3,6 +3,7 @@ import 'package:hitomi_search_plus/db/small_image.dart';
 import 'package:hitomi_search_plus/download/download.dart';
 import 'package:hitomi_search_plus/download/gallery.dart';
 import 'package:hitomi_search_plus/hitomi/gallery.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'top.g.dart';
@@ -93,7 +94,7 @@ class TopBigImageStatus extends _$TopBigImageStatus {
 }
 
 @riverpod
-ImageDownloadStatus topImageStatus(TopImageStatusRef ref, int id) {
+ImageDownloadStatus topImageStatus(Ref ref, int id) {
   final status = ref.watch(topBigImageStatusProvider(id));
   final small = ref.watch(smallImageProvider(id));
   if (status is ImageDownloadDone ||

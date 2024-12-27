@@ -74,7 +74,7 @@ Map<String, dynamic> _$$ExportDataImplToJson(_$ExportDataImpl instance) =>
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dataSyncStateHash() => r'b5c91d7716942c91f4392111c203b4874322324e';
+String _$dataSyncStateHash() => r'f0da0bc26ec600419bcdb6e556f73ab8a96c6640';
 
 /// See also [DataSyncState].
 @ProviderFor(DataSyncState)
@@ -90,7 +90,7 @@ final dataSyncStateProvider =
 );
 
 typedef _$DataSyncState = AutoDisposeNotifier<DataSyncs>;
-String _$dataSyncHash() => r'441166e68ecbcdc11290befd84bfbc912bc4f91a';
+String _$dataSyncHash() => r'3ae9da915acbb95175fb4a369c508db7c76cbb79';
 
 /// See also [DataSync].
 @ProviderFor(DataSync)
@@ -105,4 +105,4 @@ final dataSyncProvider = NotifierProvider<DataSync, int>.internal(
 
 typedef _$DataSync = Notifier<int>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

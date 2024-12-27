@@ -14,8 +14,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'drawer.g.dart';
 
 @riverpod
-bool isMouseDevice(IsMouseDeviceRef ref) {
-  // TODO: Need more effective way to detect mouse device
+bool isMouseDevice(Ref ref) {
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     return true;
   } else {

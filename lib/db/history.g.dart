@@ -6,7 +6,7 @@ part of 'history.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getHistoryHash() => r'e4277ac2aa0e4e416d40c3a5888a08a2d62ea368';
+String _$getHistoryHash() => r'938b147c75753074044ab00f082275675b8546f4';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -142,6 +142,8 @@ class GetHistoryProvider extends AutoDisposeFutureProvider<HistoryItem?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetHistoryRef on AutoDisposeFutureProviderRef<HistoryItem?> {
   /// The parameter `index` of this provider.
   int get index;
@@ -170,4 +172,4 @@ final historyProvider = NotifierProvider<History, HistoryState>.internal(
 
 typedef _$History = Notifier<HistoryState>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

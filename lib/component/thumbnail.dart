@@ -36,7 +36,7 @@ class UseJapanese extends _$UseJapanese {
 }
 
 @riverpod
-String autoTitle(AutoTitleRef ref, int id) {
+String autoTitle(Ref ref, int id) {
   final gallery = ref.watch(galleryJSProvider(id));
   final useJapanese = ref.watch(useJapaneseProvider);
   return gallery.when(
@@ -124,7 +124,7 @@ class Tags extends StatelessWidget {
           colors: [
             colorScheme.surface,
             colorScheme.surface,
-            colorScheme.surface.withOpacity(0.0),
+            colorScheme.surface.withValues(alpha: 0.5),
           ],
           stops: const [0.0, 0.85, 1.0],
         ).createShader(bounds);
