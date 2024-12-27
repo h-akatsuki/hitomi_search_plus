@@ -307,8 +307,8 @@ class Bookmark extends _$Bookmark {
     final ids = state.map((e) => e.id).toList();
     final queries = state.map((e) => e.searchBuilder).toList();
     final len = ids.length;
-    for (var i = 0; i < len; i += 10) {
-      final end = min(i + 10, len);
+    for (var i = 0; i < len; i += 50) {
+      final end = min(i + 50, len);
       final subIds = ids.sublist(i, end);
       final subQueries = queries.sublist(i, end);
       try {
