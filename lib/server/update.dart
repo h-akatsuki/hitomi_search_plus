@@ -8,7 +8,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'update.g.dart';
 
-const v = 'v0.2.4';
+const v = 'v0.2.5';
 
 @Riverpod(keepAlive: true)
 class LatestVersion extends _$LatestVersion {
