@@ -9,6 +9,7 @@ import 'package:hitomi_search_plus/download/background.dart';
 import 'package:hitomi_search_plus/download/download.dart';
 import 'package:hitomi_search_plus/page/home.dart';
 import 'package:hitomi_search_plus/page/settings.dart';
+import 'package:hitomi_search_plus/server/query.dart';
 import 'package:hitomi_search_plus/server/tags.dart';
 import 'package:hitomi_search_plus/src/rust/frb_generated.dart';
 import 'package:hitomi_search_plus/tools/theme.dart';
@@ -39,6 +40,7 @@ Future<void> initPath() async {
   await Future.wait([
     initSettings(),
     initDefaultQuery(),
+    initQuery(),
   ]);
 }
 

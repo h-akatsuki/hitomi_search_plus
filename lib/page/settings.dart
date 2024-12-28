@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hitomi_search_plus/component/thumbnail.dart';
 import 'package:hitomi_search_plus/db/kv.dart';
+import 'package:hitomi_search_plus/server/query.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -79,6 +80,14 @@ class SettingsScreen extends HookConsumerWidget {
             initialValue: useJp,
             onChanged: (_) {
               ref.read(useJapaneseProvider.notifier).toggle();
+            },
+          ),
+          const Divider(),
+          TextSettingItem(
+            title: 'Override search api',
+            initialValue: ref.read(queryAPIUriProvider),
+            onChanged: (String value) {
+              ref.read(queryAPIUriProvider.notifier).set(value);
             },
           ),
         ],

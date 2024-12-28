@@ -29,3 +29,25 @@ Map<String, dynamic> _$$SearchParamsImplToJson(_$SearchParamsImpl instance) =>
     <String, dynamic>{
       'queries': instance.queries,
     };
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$queryAPIUriHash() => r'da3996519170676a36c076b4301d71091459052b';
+
+/// See also [QueryAPIUri].
+@ProviderFor(QueryAPIUri)
+final queryAPIUriProvider =
+    AutoDisposeNotifierProvider<QueryAPIUri, String>.internal(
+  QueryAPIUri.new,
+  name: r'queryAPIUriProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$queryAPIUriHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$QueryAPIUri = AutoDisposeNotifier<String>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

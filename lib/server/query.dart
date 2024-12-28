@@ -5,10 +5,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hitomi_search_plus/db/default_query.dart';
+import 'package:hitomi_search_plus/db/kv.dart';
 import 'package:http/http.dart' as http;
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'query.freezed.dart';
 part 'query.g.dart';
+
+String _apiUri = 'https://hitomi.hiro.red';
+
+Future<void> initQuery() async {
+  final apiUri = await getKV('__api_uri__');
+  if (apiUri != null) {
+    _apiUri = apiUri;
+  }
+}
+
+@riverpod
+class QueryAPIUri extends _$QueryAPIUri {
+  @override
+  String build() => _apiUri;
+
+  void set(String uri) {
+    _apiUri = uri;
+    state = uri;
+    setKV('__api_uri__', uri);
+  }
+}
 
 @freezed
 class SearchBuilder with _$SearchBuilder {
@@ -75,7 +98,7 @@ List<SearchResults> parseSearchResults(Uint8List data) {
 }
 
 Future<List<SearchResults>> search(SearchParams params) async {
-  final url = Uri.parse('https://hitomi.hiro.red/search');
+  final url = Uri.parse('$_apiUri/search');
   final response = await http.post(
     url,
     body: jsonEncode(params.toJson()),
@@ -172,7 +195,7 @@ class SearchResultsReader {
 }
 
 Future<SearchResultsReader> searchReader(SearchParams params) async {
-  final url = Uri.parse('https://hitomi.hiro.red/search');
+  final url = Uri.parse('$_apiUri/search');
   final response = await http.post(
     url,
     body: jsonEncode(params.toJson()),
