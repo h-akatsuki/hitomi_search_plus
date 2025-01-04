@@ -7,4 +7,5 @@
         "source.fixAll": "explicit"
     },
     "editor.inlayHints.enabled": "on",
+    "cmake.ignoreCMakeListsMissing": true,
 }

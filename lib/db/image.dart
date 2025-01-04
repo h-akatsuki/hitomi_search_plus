@@ -97,6 +97,13 @@ Future<List<int>> getImages(int id) async {
   return result.map((e) => e['page'] as int).toList();
 }
 
+Future<List<Map<String, dynamic>>> getImagesById(int id) async {
+  return await db.rawQuery('''
+    SELECT page, name, data FROM image
+    WHERE id = ? ORDER BY page
+  ''', [id]);
+}
+
 @riverpod
 class GalleryImages extends _$GalleryImages {
   @override

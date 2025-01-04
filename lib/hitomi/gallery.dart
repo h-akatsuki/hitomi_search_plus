@@ -223,6 +223,27 @@ class Gallery with _$Gallery {
   }
 }
 
+extension ComicinfoXml on Gallery {
+  String toComicInfoXml() {
+    final dateTime = DateTime.parse(date);
+    return '''
+<?xml version="1.0" encoding="utf-8"?>
+<ComicInfo>
+  <Title>$title</Title>
+  <Series>${parodys.isNotEmpty ? parodys.first.parody : ''}</Series>
+  <PageCount>${files.length}</PageCount>
+  <Year>${dateTime.year}</Year>
+  <Month>${dateTime.month}</Month>
+  <Day>${dateTime.day}</Day>
+  <Writer>${artists.map((a) => a.artist).join(', ')}</Writer>
+  <Characters>${characters.map((c) => c.character).join(', ')}</Characters>
+  <LanguageISO>${language ?? ''}</LanguageISO>
+  <Web>${urlFromId()}</Web>
+</ComicInfo>
+''';
+  }
+}
+
 final http.Client client = http.Client();
 
 @riverpod

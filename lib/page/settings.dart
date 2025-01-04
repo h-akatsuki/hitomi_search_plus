@@ -1,6 +1,12 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hitomi_search_plus/component/thumbnail.dart';
+import 'package:hitomi_search_plus/db/cbz.dart';
 import 'package:hitomi_search_plus/db/kv.dart';
+import 'package:hitomi_search_plus/db/manager.dart';
 import 'package:hitomi_search_plus/server/query.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -90,7 +96,33 @@ class SettingsScreen extends HookConsumerWidget {
               ref.read(queryAPIUriProvider.notifier).set(value);
             },
           ),
+          const Divider(),
+          const SetDownloadDir(),
+          const Divider(),
+          const DeleteImageCacheButton(),
         ],
+      ),
+    );
+  }
+}
+
+class SetDownloadDir extends HookConsumerWidget {
+  const SetDownloadDir({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final downloadDir = ref.watch(downloadDirProvider);
+    return ListTile(
+      title: const Text('Download Directory'),
+      subtitle: Text(downloadDir.value?.path ?? 'Not set'),
+      trailing: IconButton(
+        icon: const Icon(Icons.folder_open),
+        onPressed: () async {
+          final result = await FilePicker.platform.getDirectoryPath();
+          if (result != null) {
+            await ref.read(downloadDirProvider.notifier).set(Directory(result));
+          }
+        },
       ),
     );
   }
@@ -144,6 +176,56 @@ class TextSettingItem extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+enum CacheStatus {
+  idle,
+  deleting,
+  done,
+}
+
+class DeleteImageCacheButton extends HookConsumerWidget {
+  const DeleteImageCacheButton({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final status = useState<CacheStatus>(CacheStatus.idle);
+    return ListTile(
+      title: const Text('Cache Management'),
+      subtitle: const Text('Delete all image caches from unliked galleries'),
+      trailing: status.value == CacheStatus.deleting
+          ? const SizedBox(
+              width: 24,
+              height: 24,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            )
+          : IconButton(
+              icon: Icon(
+                status.value == CacheStatus.done
+                    ? Icons.check_circle
+                    : Icons.delete_outline,
+                color: status.value == CacheStatus.done
+                    ? Colors.green
+                    : Theme.of(context).colorScheme.primary,
+              ),
+              onPressed: status.value == CacheStatus.idle
+                  ? () async {
+                      status.value = CacheStatus.deleting;
+                      await deleteUnlikedGalleryCache();
+                      status.value = CacheStatus.done;
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Cache cleared successfully'),
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
+                      }
+                    }
+                  : null,
+            ),
     );
   }
 }

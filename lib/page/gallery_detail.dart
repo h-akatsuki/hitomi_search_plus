@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hitomi_search_plus/component/export_button.dart';
 import 'package:hitomi_search_plus/component/image.dart';
 import 'package:hitomi_search_plus/component/thumbnail.dart';
 import 'package:hitomi_search_plus/db/like.dart';
@@ -32,6 +33,7 @@ class GalleryDetailPage extends HookConsumerWidget {
           error: (_, __) => const Text('Error'),
         ),
         actions: [
+          ExportButton(id: galleryId),
           GalleryLinkButton(galleryId: galleryId),
         ],
       ),
@@ -92,6 +94,7 @@ class GalleryDetailPageFromReader extends HookConsumerWidget {
           error: (_, __) => const Text('Error'),
         ),
         actions: [
+          GalleryLinkButton(galleryId: galleryId),
           GalleryLinkButton(galleryId: galleryId),
         ],
       ),

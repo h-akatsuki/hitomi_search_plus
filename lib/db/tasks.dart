@@ -38,6 +38,10 @@ Future<void> upsrtTask(Task task) {
   ''', [task.id, task.total, task.done]);
 }
 
+Future<void> deleteTask(int id) async {
+  await db.rawDelete('DELETE FROM tasks WHERE id = ?', [id]);
+}
+
 Future<int?> getTotal(int id) async {
   final result = await db.rawQuery('''
     SELECT total FROM tasks WHERE id = ?
